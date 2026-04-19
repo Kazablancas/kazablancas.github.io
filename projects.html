@@ -72,83 +72,87 @@
   </div>
 
   <div class="project">
-  <h2>Quarter-Car Active Suspension Control with LQR and Tube MPC</h2>
+    <h2>Quarter-Car Active Suspension Control with LQR and Tube MPC</h2>
 
-  <p>
-    This project compares open-loop, LQR, and tube model predictive control (MPC) for a quarter-car active
-    suspension model in MATLAB/Simulink-style workflow. The objective was to improve ride comfort and disturbance
-    rejection while respecting actuator and state constraints.
-  </p>
+    <p>
+      This project compares open-loop, LQR, and tube model predictive control (MPC) for a quarter-car active
+      suspension model in MATLAB. The objective was to improve ride comfort and disturbance rejection while
+      respecting actuator and state constraints.
+    </p>
 
-  <p>
-    The quarter-car model was formulated with four states representing tire deflection, unsprung mass velocity,
-    suspension deflection, and sprung mass velocity. The active suspension force was used as the control input,
-    and the road profile entered as a disturbance. I evaluated controller performance on two road profiles:
-    a sharp bump/hole disturbance and a realistic IRI 737b road input.
-  </p>
+    <p>
+      The quarter-car model used four states representing tire deflection, unsprung mass velocity,
+      suspension deflection, and sprung mass velocity. The active suspension force acted as the control input,
+      and the road profile entered as a disturbance. I evaluated controller performance on two road profiles:
+      a bump/hole disturbance and a realistic IRI 737b road input.
+    </p>
 
-  <p>
-    I first simulated the open-loop system to identify which states were most sensitive to road disturbances.
-    Then I tuned a discrete-time LQR controller to shape the response and used those weighting ideas to build
-    a constrained finite-horizon MPC controller. The final implementation used tube MPC to improve robustness
-    and maintain feasibility under bounded disturbances.
-  </p>
+    <p>
+      I first simulated the open-loop system to identify the most disturbance-sensitive states. Then I tuned
+      a discrete-time LQR controller and used that weighting structure to build a constrained finite-horizon
+      MPC controller. The final implementation used tube MPC to improve robustness and feasibility under
+      bounded disturbances.
+    </p>
 
-  <p>
-    A key part of the project was comparing control performance with and without road-disturbance preview.
-    With preview enabled, the controller could anticipate upcoming road features inside the prediction horizon
-    and reduce transient peaks more effectively than a purely reactive controller.
-  </p>
+    <p>
+      I also compared controller behavior with and without road-preview information. With preview enabled,
+      the controller could anticipate upcoming road features within the prediction horizon and reduce transient
+      peaks more effectively.
+    </p>
 
-  <p><strong>Tools:</strong> MATLAB, YALMIP, quadratic programming, state-space modeling, LQR, robust/tube MPC</p>
+    <p><strong>Tools:</strong> MATLAB, YALMIP, quadratic programming, state-space modeling, LQR, tube MPC</p>
 
-  <p><strong>Key ideas:</strong> active suspension, constrained control, preview control, robust feasibility, ride comfort vs. control effort tradeoff</p>
+    <p><strong>Key ideas:</strong> active suspension, constrained control, preview control, robust feasibility, ride comfort vs. control effort tradeoff</p>
 
-  <h3>IRI 737b Road Profile</h3>
-  <div class="media-grid">
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_openloop_IRL_737b.png" alt="Open-loop quarter-car response for IRI 737b road profile" />
-      <p>Open-loop response</p>
+    <h3>IRI 737b Road Profile</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_openloop_IRI_737b.png" alt="Open-loop quarter-car response for IRI 737b road profile" />
+        <p>Open-loop response</p>
+      </div>
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_LQR_IRI_737b.png" alt="LQR quarter-car response for IRI 737b road profile" />
+        <p>LQR response</p>
+      </div>
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_mpc_IRI_737b.png" alt="Tube MPC quarter-car response for IRI 737b road profile" />
+        <p>Tube MPC response</p>
+      </div>
     </div>
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_LQR_IRL 737b.png" alt="LQR quarter-car response for IRI 737b road profile" />
-      <p>LQR response</p>
+
+    <p>
+      <a class="button" href="QuarterCar_MPC/Videos/OL_IRI737b.mp4" target="_blank">Open-Loop Video</a>
+      <a class="button" href="QuarterCar_MPC/Videos/LQR_IRI737b.mp4" target="_blank">LQR Video</a>
+      <a class="button" href="QuarterCar_MPC/Videos/MPC_IRI737b.mp4" target="_blank">MPC Video</a>
+    </p>
+
+    <h3>Road Bump / Hole Profile</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_openloop_roadbumphole.png" alt="Open-loop quarter-car response for bump and hole road profile" />
+        <p>Open-loop response</p>
+      </div>
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_LQR_roadbumphole.png" alt="LQR quarter-car response for bump and hole road profile" />
+        <p>LQR response</p>
+      </div>
+      <div class="media-card">
+        <img src="QuarterCar_MPC/Figs/HW4_mpc_roadbumphole.png" alt="Tube MPC quarter-car response for bump and hole road profile" />
+        <p>Tube MPC response</p>
+      </div>
     </div>
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_mpc_IRL737b.png" alt="Tube MPC quarter-car response for IRI 737b road profile" />
-      <p>Tube MPC response</p>
-    </div>
+
+    <p>
+      <a class="button" href="QuarterCar_MPC/Videos/OL_holebump.mp4" target="_blank">Open-Loop Video</a>
+      <a class="button" href="QuarterCar_MPC/Videos/LQR_holebump.mp4" target="_blank">LQR Video</a>
+      <a class="button" href="QuarterCar_MPC/Videos/MPC_holebump.mp4" target="_blank">MPC Video</a>
+    </p>
+
+    <p>
+      <strong>Results:</strong> MPC reduced oscillatory response relative to open loop, explicitly handled
+      state and input constraints, and benefited further when road-preview information was available across
+      the prediction horizon.
+    </p>
   </div>
-
-  <p>
-    <a class="button" href="QuarterCar_MPC/Videos/Ol_IRL737b.mp4" target="_blank">Open-Loop Video</a>
-    <a class="button" href="QuarterCar_MPC/Videos/LQR_IRL_737b .mp4" target="_blank">LQR Video</a>
-    <a class="button" href="QuarterCar_MPC/Videos/MPC_IRL737b.mp4" target="_blank">MPC Video</a>
-  </p>
-
-  <h3>Road Bump / Hole Profile</h3>
-  <div class="media-grid">
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_openloop_roadbumphole.png" alt="Open-loop quarter-car response for bump and hole road profile" />
-      <p>Open-loop response</p>
-    </div>
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_LQR_roadbumphole.png" alt="LQR quarter-car response for bump and hole road profile" />
-      <p>LQR response</p>
-    </div>
-    <div class="media-card">
-      <img src="QuarterCar_MPC/Figs/HW4_mpc_roadbumphole.png" alt="Tube MPC quarter-car response for bump and hole road profile" />
-      <p>Tube MPC response</p>
-    </div>
-  </div>
-
-  <p>
-    <a class="button" href="QuarterCar_MPC/Videos/OL_holebump.mp4" target="_blank">Open-Loop Video</a>
-    <a class="button" href="QuarterCar_MPC/Videos/LQR_holebump.mp4" target="_blank">LQR Video</a>
-    <a class="button" href="QuarterCar_MPC/Videos/MPC_holebump.mp4" target="_blank">MPC Video</a>
-  </p>
-
-  <p><strong>Results:</strong> MPC reduced oscillatory response relative to open loop and handled state/input constraints explicitly. Compared with LQR, MPC produced more controlled transients and benefited further when disturbance preview was available across the prediction horizon.</p>
-</div>
 </body>
 </html>
