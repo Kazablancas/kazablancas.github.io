@@ -101,20 +101,148 @@
   </div>
 
   <div class="project">
-    <h2>Nonlinear Quadcopter Control in MATLAB/Simulink</h2>
+    <h2>Nonlinear Quadcopter GNC in MATLAB/Simulink</h2>
+  
     <p>
-      Built a physics-based nonlinear 6-DOF quadcopter digital twin in MATLAB/Simulink for closed-loop control design.
-      The model included discrete-time simulation, stochastic disturbances, sensor noise, and structured parametric uncertainty.
+      This ongoing project develops a physics-based nonlinear 6-DOF quadcopter simulation in MATLAB/Simulink
+      for trajectory tracking and closed-loop GNC algorithm evaluation. The model includes rigid-body dynamics,
+      discrete-time simulation, stochastic disturbances, sensor noise, actuator limits, and structured parametric
+      uncertainty.
     </p>
+  
     <p>
-      I evaluated trajectory-tracking controllers using time-varying linearization, including finite-horizon LQG,
-      model predictive control, feed-forward control, and robust H∞ methods.
+      I focused on modeling, state estimation, and control design. The nonlinear plant was linearized about
+      trajectory operating points and used to design observer-based finite-horizon LQG and model predictive
+      control (MPC) controllers. Kalman-filter-based state estimation was used to provide noisy-feedback state
+      estimates for closed-loop control.
     </p>
-    <img src="images/mpc-plot-1.png" alt="Quadcopter MPC plot" />
+  
     <p>
-      <a class="button" href="Quadcopter_visuals/square.mp4" target="_blank">
-        View Simulation Video
-      </a>
+      Controller performance was evaluated using square-trajectory tracking simulations, position tracking plots,
+      velocity tracking plots, Euler-angle tracking plots, and recorded flight-animation demos.
+    </p>
+  
+    <p><strong>Tools:</strong> MATLAB, Simulink, state-space modeling, LQG, MPC, Kalman filtering, nonlinear simulation</p>
+  
+    <p><strong>Key ideas:</strong> quadcopter GNC, 6-DOF rigid-body dynamics, trajectory tracking, observer-based control, noisy-state estimation, constrained control</p>
+  
+    <h3>Nominal Square-Trajectory Simulation</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking.png" alt="Nominal quadcopter square trajectory position tracking" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking.png" alt="Nominal quadcopter square trajectory Euler angle tracking" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <a class="button" href="Quadcopter_visuals/square.mp4" target="_blank">Nominal Simulation Video</a>
+    </p>
+  
+    <h3>LQG Trajectory Tracking — Trial 1</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking_LQG.png" alt="LQG quadcopter position tracking trial 1" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_posdot_tracking_LQG.png" alt="LQG quadcopter velocity tracking trial 1" />
+        <p>Velocity tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking_LQG.png" alt="LQG quadcopter Euler angle tracking trial 1" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <a class="button" href="Quadcopter_visuals/Quad_LQG.mp4" target="_blank">LQG Trial 1 Video</a>
+    </p>
+  
+    <h3>LQG Trajectory Tracking — Trial 2</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking_LQG2.png" alt="LQG quadcopter position tracking trial 2" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_posdot_tracking_LQG2.png" alt="LQG quadcopter velocity tracking trial 2" />
+        <p>Velocity tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking_LQG2.png" alt="LQG quadcopter Euler angle tracking trial 2" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <a class="button" href="Quadcopter_visuals/Quad_LQG_2.mp4" target="_blank">LQG Trial 2 Video</a>
+    </p>
+  
+    <h3>MPC Trajectory Tracking — Trial 1</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking_MPC.png" alt="MPC quadcopter position tracking trial 1" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_posdot_tracking_MPC.png" alt="MPC quadcopter velocity tracking trial 1" />
+        <p>Velocity tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking_MPC.png" alt="MPC quadcopter Euler angle tracking trial 1" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <a class="button" href="Quadcopter_visuals/Quad_MPC.mp4" target="_blank">MPC Trial 1 Video</a>
+    </p>
+  
+    <h3>MPC Trajectory Tracking — Trial 2</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking_MPC_G2.png" alt="MPC quadcopter position tracking trial 2" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_posdot_tracking_MPC_G2.png" alt="MPC quadcopter velocity tracking trial 2" />
+        <p>Velocity tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking_MPC_G2.png" alt="MPC quadcopter Euler angle tracking trial 2" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <a class="button" href="Quadcopter_visuals/Quad_MPC_2.mp4" target="_blank">MPC Trial 2 Video</a>
+    </p>
+  
+    <h3>MPC Guided/Reference Variant</h3>
+    <div class="media-grid">
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_pos_tracking_MPC_G.png" alt="MPC guided quadcopter position tracking" />
+        <p>Position tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_posdot_tracking_MPC_G.png" alt="MPC guided quadcopter velocity tracking" />
+        <p>Velocity tracking</p>
+      </div>
+      <div class="media-card">
+        <img src="Quadcopter_visuals/square_euler_tracking_MPC_G.png" alt="MPC guided quadcopter Euler angle tracking" />
+        <p>Euler-angle tracking</p>
+      </div>
+    </div>
+  
+    <p>
+      <strong>Results:</strong> LQG provided observer-based trajectory tracking with noisy sensor feedback, while MPC
+      enabled predictive tracking behavior with explicit handling of control objectives over a finite horizon.
+      The simulation videos and plots document closed-loop position tracking, velocity tracking, attitude response,
+      and controller behavior across multiple trials.
     </p>
   </div>
 
